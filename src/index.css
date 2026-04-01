@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Neon Dark - Purple Pink theme (default) */
+    --background: 270 87% 5%;
+    --foreground: 270 30% 95%;
+
+    --card: 270 60% 8%;
+    --card-foreground: 270 30% 95%;
+
+    --popover: 270 60% 8%;
+    --popover-foreground: 270 30% 95%;
+
+    --primary: 258 92% 76%;
+    --primary-foreground: 270 87% 5%;
+
+    --secondary: 270 40% 14%;
+    --secondary-foreground: 270 30% 95%;
+
+    --muted: 270 40% 14%;
+    --muted-foreground: 270 20% 60%;
+
+    --accent: 322 87% 70%;
+    --accent-foreground: 270 87% 5%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 270 40% 18%;
+    --input: 270 40% 18%;
+    --ring: 258 92% 76%;
+
+    --radius: 1rem;
+
+    --gradient-start: 258 92% 76%;
+    --gradient-mid: 290 80% 65%;
+    --gradient-end: 322 87% 70%;
+  }
+
+  /* Light mode keeps a subtle purple tint */
+  .light {
+    --background: 270 40% 97%;
+    --foreground: 270 40% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 270 40% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 270 40% 10%;
+
+    --primary: 258 80% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 270 20% 92%;
+    --secondary-foreground: 270 40% 10%;
+
+    --muted: 270 20% 92%;
+    --muted-foreground: 270 15% 45%;
+
+    --accent: 322 80% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 270 20% 88%;
+    --input: 270 20% 88%;
+    --ring: 258 80% 60%;
+
+    --gradient-start: 258 80% 60%;
+    --gradient-mid: 290 75% 55%;
+    --gradient-end: 322 80% 55%;
+  }
+}
+
+/* Apply dark theme by default */
+html {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .glass {
+    background: hsl(var(--card) / 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--primary) / 0.15);
+  }
+
+  .glass-strong {
+    background: hsl(var(--card) / 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid hsl(var(--primary) / 0.2);
+  }
+
+  .gradient-bg {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--gradient-start)),
+      hsl(var(--gradient-mid)),
+      hsl(var(--gradient-end))
+    );
+  }
+
+  .gradient-text {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--gradient-start)),
+      hsl(var(--gradient-end))
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .shadow-soft {
+    box-shadow: 0 8px 32px -8px hsl(var(--primary) / 0.2);
+  }
+
+  .shadow-hover {
+    box-shadow: 0 12px 40px -6px hsl(var(--primary) / 0.3);
+  }
+
+  .shadow-glow {
+    box-shadow:
+      0 4px 20px -4px hsl(var(--primary) / 0.5),
+      0 0 60px -10px hsl(var(--accent) / 0.3);
+  }
+
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .float-delayed {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: -3s;
+  }
+
+  /* Neon ambient blobs */
+  .blob-purple {
+    background: radial-gradient(circle, hsl(var(--primary) / 0.25) 0%, transparent 70%);
+    filter: blur(60px);
+  }
+
+  .blob-pink {
+    background: radial-gradient(circle, hsl(var(--accent) / 0.2) 0%, transparent 70%);
+    filter: blur(50px);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.4);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.7);
+}
