@@ -8,7 +8,7 @@ const Projects = () => {
       description:
         "A modern online store with cart functionality and beautiful UI.",
       tags: ["React", "Tailwind", "API"],
-      image: "",
+      image: "https://i.ibb.co/whydMb6b/Screenshot-2026-04-01-224544.png",
       github: "https://github.com/Mansisharma-22/React-Dashboard",
       live: "https://react-dashboard-nine-puce.vercel.app/",
       featured: true,
@@ -17,11 +17,10 @@ const Projects = () => {
       title: "Food Recipe App",
       description: "Real-time weather app with location search and forecasts.",
       tags: ["React", "API", "CSS"],
+      image: "https://i.ibb.co/TxsvNkH5/Screenshot-2026-04-01-223434.png",
       github: "https://github.com/Mansisharma-22/food-project",
       live: "https://food-project-vert.vercel.app/",
     },
-
- 
   ];
 
   return (
@@ -61,15 +60,25 @@ const Projects = () => {
                   project.featured ? "md:flex md:items-center md:gap-8" : ""
                 }`}
               >
-                {/* Icon */}
+                {/* Image */}
                 <div
-                  className={`flex items-center justify-center rounded-xl bg-primary/10 mb-6 ${
-                    project.featured ? "w-32 h-32 md:mb-0 shrink-0" : "h-40"
+                  className={`rounded-xl overflow-hidden mb-6 ${
+                    project.featured
+                      ? "w-full md:w-72 h-44 md:mb-0 shrink-0"
+                      : "h-44"
                   }`}
                 >
-                  <span className={project.featured ? "text-6xl" : "text-5xl"}>
-                    {project.image}
-                  </span>
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-primary/10">
+                      <Folder className="w-12 h-12 text-primary" />
+                    </div>
+                  )}
                 </div>
 
                 {/* Content */}
